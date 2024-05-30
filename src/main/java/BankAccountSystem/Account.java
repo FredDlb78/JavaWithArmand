@@ -2,6 +2,16 @@ package BankAccountSystem;
 
 public class Account {
     private Integer accountNumber;
+    private String owner;
+
+    public String getOwner() {
+        return owner;
+    }
+
+    public void setOwner(String owner) {
+        this.owner = owner;
+    }
+
     protected double balance;
 
     public Integer getAccountNumber() {
@@ -40,6 +50,7 @@ public class Account {
 
     public void displayInfos() {
         System.out.println("Numéro de compte : " + getAccountNumber());
-        System.out.println("Solde : " + getBalance() + " Euros");
+        System.out.println("Propriétaire du compte: " + getOwner());
+        System.out.println("Solde : " + String.format("%2s", getBalance()) + " Euros");
     }
 }
