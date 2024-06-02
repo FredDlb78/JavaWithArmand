@@ -1,28 +1,28 @@
 package BankAccountSystem;
 
 public class CurrentAccount extends Account {
-    private Integer overdraft;
+    private Double overdraft;
 
-    public Integer getOverdraft() {
+    public Double getOverdraft() {
         return overdraft;
     }
 
-    public void setOverdraft(Integer overdraft) {
+    public void setOverdraft(Double overdraft) {
         this.overdraft = overdraft;
     }
 
     @Override
-    public void withdrawal(Integer withdrawal) {
-        if (withdrawal <= balance + overdraft) {
-            balance -= withdrawal;
-            System.out.println("Retrait de " + withdrawal + " Euros réussi. Votre nouveau solde est de " + balance + " Euros.");
+    public void withdrawal(Double amount) {
+        if (getBalance() - amount > overdraft) {
+            setBalance(getBalance() - amount);
+            System.out.println("Retrait de " + amount + " € réussi. Votre nouveau solde est de " + balance + " €.");
         } else {
-            System.out.println("Solde insuffisant. Veuillez entrer un montant inférieur à " + (balance + overdraft) + " Euros.");
+            System.out.println("Solde insuffisant. Veuillez entrer un montant inférieur à " + (balance + overdraft) + " €.");
         }
     }
     @Override
     public void displayInfos() {
         super.displayInfos();
-        System.out.println("Découvert autorisé: " + getOverdraft() + "€");
+        System.out.println("Découvert autorisé: " + getOverdraft() + " €");
     }
 }

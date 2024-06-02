@@ -1,8 +1,9 @@
 package BankAccountSystem;
 
-public class Account {
+public abstract class Account {
     private Integer accountNumber;
     private String owner;
+    protected double balance;
 
     public String getOwner() {
         return owner;
@@ -11,8 +12,6 @@ public class Account {
     public void setOwner(String owner) {
         this.owner = owner;
     }
-
-    protected double balance;
 
     public Integer getAccountNumber() {
         return accountNumber;
@@ -33,24 +32,24 @@ public class Account {
     public void deposit(Integer deposit) {
         if (deposit > 0) {
             balance += deposit;
-            System.out.println("Dépôt de " + deposit + " Euros réussi. Votre nouveau solde est de " + balance + " Euros.");
+            System.out.println("Dépôt de " + deposit + " € réussi. Votre nouveau solde est de " + balance + " €.");
         } else {
             System.out.println("Le montant de votre dépôt doit être positif.");
         }
     }
 
-    public void withdrawal(Integer withdrawal) {
-        if (withdrawal < balance) {
-            balance -= withdrawal;
-            System.out.println("Retrait de " + withdrawal + " Euros réussi. Votre nouveau solde est de " + balance + " Euros.");
+    public void withdrawal(Double amount) {
+        if (amount < balance) {
+            balance -= amount;
+            System.out.println("Retrait de " + amount + " € réussi. Votre nouveau solde est de " + balance + " €.");
         } else {
-            System.out.println("Solde insuffisant. Veuillez entrer un montant inférieur à " + balance + " Euros.");
+            System.out.println("Solde insuffisant. Veuillez entrer un montant inférieur à " + balance + " €.");
         }
     }
 
     public void displayInfos() {
         System.out.println("Numéro de compte : " + getAccountNumber());
         System.out.println("Propriétaire du compte: " + getOwner());
-        System.out.println("Solde : " + String.format("%2s", getBalance()) + " Euros");
+        System.out.println("Solde : " + String.format("%2s", getBalance()) + " €");
     }
 }
