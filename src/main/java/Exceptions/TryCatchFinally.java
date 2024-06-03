@@ -1,5 +1,6 @@
 package Exceptions;
 
+import java.util.InputMismatchException;
 import java.util.Scanner;
 
 public class TryCatchFinally {
@@ -8,8 +9,9 @@ public class TryCatchFinally {
         System.out.println("Entrez un nombre: ");
         try {
             int number = scanner.nextInt();
-        }catch (Exception e){
-            System.out.println("Exception occured " + e);
+            double result = 2 / number;
+        }catch (InputMismatchException | ArithmeticException e){
+            System.out.println("Exception occured: " + e);
         }finally {
             System.out.println("Execute no matter what");
         }

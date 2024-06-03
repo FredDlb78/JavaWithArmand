@@ -25,11 +25,11 @@ public abstract class Account {
         return balance;
     }
 
-    public void setBalance(double balance) {
-        this.balance = balance;
+    public void setBalance(double amount) {
+        balance += amount;
     }
 
-    public void deposit(Integer deposit) {
+    public void deposit(Double deposit) {
         if (deposit > 0) {
             balance += deposit;
             System.out.println("Dépôt de " + deposit + " € réussi. Votre nouveau solde est de " + balance + " €.");
@@ -42,10 +42,9 @@ public abstract class Account {
         if (amount < balance) {
             balance -= amount;
             System.out.println("Retrait de " + amount + " € réussi. Votre nouveau solde est de " + balance + " €.");
-        } else {
-            System.out.println("Solde insuffisant. Veuillez entrer un montant inférieur à " + balance + " €.");
-        }
+        } else throw new InsufficientBalanceException("Your balance is too low for this transaction.");
     }
+
 
     public void displayInfos() {
         System.out.println("Numéro de compte : " + getAccountNumber());
@@ -53,3 +52,4 @@ public abstract class Account {
         System.out.println("Solde : " + String.format("%2s", getBalance()) + " €");
     }
 }
+
