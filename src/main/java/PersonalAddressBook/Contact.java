@@ -1,55 +1,54 @@
-package BankAccountSystem;
+package PersonalAddressBook;
 
-public abstract class Account {
-    private Integer accountNumber;
-    private String owner;
-    protected double balance;
+public class Contact {
+    private String contactLastName;
+    private String contactFirstName;
+    private String contactEmail;
+    private String contactPhoneNumber;
 
-    public String getOwner() {
-        return owner;
+    public String getContactLastName() {
+        return contactLastName;
     }
 
-    public void setOwner(String owner) {
-        this.owner = owner;
+    public void setContactLastName(String contactLastName) {
+        this.contactLastName = contactLastName;
     }
 
-    public Integer getAccountNumber() {
-        return accountNumber;
+    public String getContactFirstName() {
+        return contactFirstName;
     }
 
-    public void setAccountNumber(Integer accountNumber) {
-        this.accountNumber = accountNumber;
+    public void setContactFirstName(String contactFirstName) {
+        this.contactFirstName = contactFirstName;
     }
 
-    public double getBalance() {
-        return balance;
+    public String getContactEmail() {
+        return contactEmail;
     }
 
-    public void setBalance(double amount) {
-        balance += amount;
+    public void setContactEmail(String contactEmail) {
+        this.contactEmail = contactEmail;
     }
 
-    public void deposit(Double deposit) {
-        if (deposit > 0) {
-            balance += deposit;
-            System.out.println("Dépôt de " + deposit + " € réussi. Votre nouveau solde est de " + balance + " €.");
-        } else {
-            System.out.println("Le montant de votre dépôt doit être positif.");
-        }
+    public String getContactPhoneNumber() {
+        return contactPhoneNumber;
     }
 
-    public void withdrawal(Double amount) {
-        if (amount < balance) {
-            balance -= amount;
-            System.out.println("Retrait de " + amount + " € réussi. Votre nouveau solde est de " + balance + " €.");
-        } else throw new InsufficientBalanceException("Your balance is too low for this transaction.");
+    public void setContactPhoneNumber(String contactPhoneNumber) {
+        this.contactPhoneNumber = contactPhoneNumber;
     }
-
+    public void setContact(String lastName, String firstName, String email, String phoneNumber){
+        setContactLastName(lastName);
+        setContactFirstName(firstName);
+        setContactEmail(email);
+        setContactPhoneNumber(phoneNumber);
+    }
 
     public void displayInfos() {
-        System.out.println("Numéro de compte : " + getAccountNumber());
-        System.out.println("Propriétaire du compte: " + getOwner());
-        System.out.println("Solde : " + String.format("%2s", getBalance()) + " €");
+        System.out.println("Last Name : " + getContactLastName());
+        System.out.println("First Name : " + getContactFirstName());
+        System.out.println("Email : " + getContactEmail());
+        System.out.println("Phone : " + getContactPhoneNumber());
     }
 }
 
