@@ -1,54 +1,59 @@
 package PersonalAddressBook;
 
 public class Contact {
-    private String contactLastName;
-    private String contactFirstName;
-    private String contactEmail;
-    private String contactPhoneNumber;
+    private String lastName;
+    private String firstName;
+    private String email;
+    private String phone;
 
-    public String getContactLastName() {
-        return contactLastName;
+    public String getLastName() {
+        return lastName;
     }
 
-    public void setContactLastName(String contactLastName) {
-        this.contactLastName = contactLastName;
+    public void setLastName(String lastName) {
+        this.lastName = lastName;
     }
 
-    public String getContactFirstName() {
-        return contactFirstName;
+    public String getFirstName() {
+        return firstName;
     }
 
-    public void setContactFirstName(String contactFirstName) {
-        this.contactFirstName = contactFirstName;
+    public void setFirstName(String firstName) {
+        this.firstName = firstName;
     }
 
-    public String getContactEmail() {
-        return contactEmail;
+    public String getEmail() {
+        return email;
     }
 
-    public void setContactEmail(String contactEmail) {
-        this.contactEmail = contactEmail;
+    public void setEmail(String email) {
+        this.email = email;
     }
 
-    public String getContactPhoneNumber() {
-        return contactPhoneNumber;
+    public String getPhone() {
+        return phone;
     }
 
-    public void setContactPhoneNumber(String contactPhoneNumber) {
-        this.contactPhoneNumber = contactPhoneNumber;
-    }
-    public void setContact(String lastName, String firstName, String email, String phoneNumber){
-        setContactLastName(lastName);
-        setContactFirstName(firstName);
-        setContactEmail(email);
-        setContactPhoneNumber(phoneNumber);
+    public void setPhone(String phone) {
+        this.phone = phone;
     }
 
-    public void displayInfos() {
-        System.out.println("Last Name : " + getContactLastName());
-        System.out.println("First Name : " + getContactFirstName());
-        System.out.println("Email : " + getContactEmail());
-        System.out.println("Phone : " + getContactPhoneNumber());
+    public Contact(String lastName, String firstName, String email, String phone){
+        this.lastName = lastName;
+        this.firstName = firstName;
+        this.email = email;
+        this.phone = phone;
+
+    }
+
+    @Override
+    public String toString() {
+        return "Contact{" +
+                "lastName='" + lastName + '\'' +
+                ", firstName='" + firstName + '\'' +
+                ", email='" + email + '\'' +
+                ", phone='" + phone + '\'' +
+                '}';
     }
 }
 
